@@ -8,10 +8,40 @@
 #ifndef __SBL_SERVICE_H__
 #define __SBL_SERVICE_H__
 
-#include <PiPei.h>
-#include <Library/BaseLib.h>
-#include <Library/BaseMemoryLib.h>
-#include <Library/DebugLib.h>
+#include <UefiCdefs.h>
+//#include <PiPei.h>
+//#include <Library/BaseLib.h>
+//#include <Library/BaseMemoryLib.h>
+//#include <Library/DebugLib.h>
+
+//
+// Modifier to ensure that all protocol member functions and EFI intrinsics
+// use the correct C calling convention. All protocol member functions and
+// EFI intrinsics are required to modify their member functions with EFIAPI.
+//
+#ifndef EFIAPI
+#if defined (_MSC_EXTENSIONS)
+///
+/// Microsoft* compiler specific method for EFIAPI calling convention.
+///
+#define EFIAPI  __cdecl
+#elif (defined (__GNUC__) || defined (__clang__)) && defined (__i386__)
+///
+/// GCC specific method for EFIAPI calling convention on x86.
+///
+#define EFIAPI  __attribute__((cdecl))
+#else
+///
+/// The default for a non Microsoft* or GCC compiler is to assume the EFI ABI
+/// is the standard.
+///
+#define EFIAPI
+#endif
+#endif
+
+#ifndef DEBUG_ERROR
+#define DEBUG_ERROR  0x80000000          // Error
+#endif
 
 #undef   DEBUG
 #define  DEBUG(Expression)   sbl_service->DebugPrint Expression

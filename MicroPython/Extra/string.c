@@ -9,6 +9,8 @@
 #include <string.h>
 #include "mpconfigport.h"
 #include "sblservice.h"
+#include <Library/BaseLib.h>
+#include <Library/BaseMemoryLib.h>
 
 void *memcpy(void *dst, const void *src, size_t n) {
   CopyMem(dst, src, n);

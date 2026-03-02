@@ -254,7 +254,7 @@
   TRUE
 
 [BuildOptions]
-  MSFT:*_*_*_CC_FLAGS = /GL- /wd4244 /wd4267 /wd4152 /wd4204 /wd4146 /wd4389 /wd4132 /wd4221 /wd4245 /wd4090 /wd4715 /wd4706 /wd4702 /wd4716 /wd4116 /wd4005 /wd4702 /wd4716 /wd4116 /wd4310
+  MSFT:*_*_*_CC_FLAGS = /GL- /wd4244 /wd4267 /wd4152 /wd4204 /wd4146 /wd4389 /wd4132 /wd4221 /wd4245 /wd4090 /wd4715 /wd4706 /wd4702 /wd4716 /wd4116 /wd4005 /wd4702 /wd4716 /wd4116 /wd4310 /P
   GCC:*_*_X64_CC_FLAGS = -Wno-attributes -Wno-builtin-declaration-mismatch -Wp,-w -DMICROPY_NLR_X64
   GCC:*_*_IA32_CC_FLAGS = -Wno-attributes -Wno-builtin-declaration-mismatch -Wp,-w -DMICROPY_NLR_X86
 
